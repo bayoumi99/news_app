@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class AppConfigProvider extends ChangeNotifier {
-ThemeMode appTheme = ThemeMode.light;
+ThemeMode themeMode = ThemeMode.dark;
 String locale = 'en';
 
 void changeLocal(String newLocal){
@@ -10,16 +10,24 @@ void changeLocal(String newLocal){
   notifyListeners();
 }
 
-void changeTheme(ThemeMode nemTheme){
-if(nemTheme == appTheme) return;
-appTheme = nemTheme;
+void toggleTheme(ThemeMode mode){
+if(mode == themeMode) return;
+themeMode = mode;
 notifyListeners();
 }
+bool  get isDarkMode =>themeMode == ThemeMode.dark;
+bool  get isEn =>locale == 'en';
 
-bool isDark(){
-  return appTheme == ThemeMode.dark;
-}
-bool isEn(){
-  return locale == "En";
-}
+
+
+
+
+
+
+
+
+
+
+
+
 }

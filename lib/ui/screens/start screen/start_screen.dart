@@ -1,6 +1,8 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import '../../../core/Theme/app_Color.dart';
+import '../../../core/provider/app_config_provider.dart';
 import '../home screen/home_screen.dart';
 
 class StartScreen extends StatefulWidget {
@@ -22,21 +24,26 @@ class _StartScreenState extends State<StartScreen> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    return Scaffold(
-      backgroundColor: AppColor.white,
-      body: Stack(
-        alignment: Alignment.center,
-        children: [
-          Center(
-            child: Image.asset("assets/image/news_logo.png",
-                width:size.width *0.6),
-          ).zoomIn().slideUp(),
-          Positioned(
-            bottom: 32,
-            child: Image.asset("assets/image/news_branding.png",
-                width:size.width *0.4).zoomIn().slideUp(),
-          )
-        ],
+    var provider = Provider.of<AppConfigProvider>(context);
+
+    return SafeArea(
+      child: Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Expanded(
+              child: Center(
+                child: Image.asset("assets/image/${provider.isDarkMode ?"news_logo.png": "news_logo_light.png"}",
+                    width:size.width *0.8),
+              ).zoomIn().slideUp(),
+            ),
+            Positioned(
+              bottom: 32,
+              child: Image.asset("assets/image/${provider.isDarkMode ?"news_branding.png": "news_branding_light.png"}",
+                  width:size.width *0.4).zoomIn().slideUp(),
+            )
+          ],
+        ),
       ),
     );
   }

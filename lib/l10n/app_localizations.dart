@@ -18,7 +18,7 @@ import 'app_localizations_en.dart';
 /// `supportedLocales` list. For example:
 ///
 /// ```dart
-/// import 'generated/app_localizations.dart';
+/// import 'l10n/app_localizations.dart';
 ///
 /// return MaterialApp(
 ///   localizationsDelegates: AppLocalizations.localizationsDelegates,
@@ -95,29 +95,17 @@ abstract class AppLocalizations {
     Locale('en')
   ];
 
-  /// No description provided for @appName.
+  /// No description provided for @newsApp.
   ///
   /// In en, this message translates to:
-  /// **'Evently'**
-  String get appName;
+  /// **'News App'**
+  String get newsApp;
 
-  /// No description provided for @personalizeYourExperience.
+  /// No description provided for @goToHome.
   ///
   /// In en, this message translates to:
-  /// **'Personalize Your Experience'**
-  String get personalizeYourExperience;
-
-  /// No description provided for @setupMessage.
-  ///
-  /// In en, this message translates to:
-  /// **'Choose your preferred theme and language to get started with a comfortable, tailored experience that suits your style.'**
-  String get setupMessage;
-
-  /// No description provided for @language.
-  ///
-  /// In en, this message translates to:
-  /// **'Language'**
-  String get language;
+  /// **'Go To Home'**
+  String get goToHome;
 
   /// No description provided for @theme.
   ///
@@ -125,161 +113,42 @@ abstract class AppLocalizations {
   /// **'Theme'**
   String get theme;
 
-  /// No description provided for @letsGo.
+  /// No description provided for @dark.
   ///
   /// In en, this message translates to:
-  /// **'Let\'s Go'**
-  String get letsGo;
+  /// **'Dark'**
+  String get dark;
 
-  /// No description provided for @email.
+  /// No description provided for @light.
   ///
   /// In en, this message translates to:
-  /// **'Email'**
-  String get email;
+  /// **'Light'**
+  String get light;
 
-  /// No description provided for @password.
+  /// No description provided for @locale.
   ///
   /// In en, this message translates to:
-  /// **'Password'**
-  String get password;
+  /// **'Locale'**
+  String get locale;
 
-  /// No description provided for @forgetPassword.
+  /// No description provided for @english.
   ///
   /// In en, this message translates to:
-  /// **'Forget Password'**
-  String get forgetPassword;
+  /// **'English'**
+  String get english;
 
-  /// No description provided for @login.
+  /// No description provided for @arabic.
   ///
   /// In en, this message translates to:
-  /// **'Login'**
-  String get login;
+  /// **'Arabic'**
+  String get arabic;
 
-  /// No description provided for @doNotHaveAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Don\'t Have Account'**
-  String get doNotHaveAccount;
+  String get home;
 
-  /// No description provided for @createAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Create Account'**
-  String get createAccount;
+  String get homeGreeting;
 
-  /// No description provided for @or.
-  ///
-  /// In en, this message translates to:
-  /// **'Or'**
-  String get or;
 
-  /// No description provided for @loginWithGoogle.
-  ///
-  /// In en, this message translates to:
-  /// **'Login With Google'**
-  String get loginWithGoogle;
 
-  /// No description provided for @registerTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Register'**
-  String get registerTitle;
-
-  /// No description provided for @nameHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Name'**
-  String get nameHint;
-
-  /// No description provided for @rePasswordHint.
-  ///
-  /// In en, this message translates to:
-  /// **'Re Password'**
-  String get rePasswordHint;
-
-  /// No description provided for @alreadyHaveAccount.
-  ///
-  /// In en, this message translates to:
-  /// **'Already Have Account?'**
-  String get alreadyHaveAccount;
-
-  /// No description provided for @userNameRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'User Name is Required'**
-  String get userNameRequired;
-
-  /// No description provided for @userNameInvalid.
-  ///
-  /// In en, this message translates to:
-  /// **'User Name is Invalid'**
-  String get userNameInvalid;
-
-  /// No description provided for @emailRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Email is Required'**
-  String get emailRequired;
-
-  /// No description provided for @emailInvalid.
-  ///
-  /// In en, this message translates to:
-  /// **'Email Address is Invalid'**
-  String get emailInvalid;
-
-  /// No description provided for @passwordRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Password is Required'**
-  String get passwordRequired;
-
-  /// No description provided for @passwordUppercase.
-  ///
-  /// In en, this message translates to:
-  /// **'Password Must Contain Upper Case Characters'**
-  String get passwordUppercase;
-
-  /// No description provided for @passwordLowercase.
-  ///
-  /// In en, this message translates to:
-  /// **'Password Must Contain Lower Case Characters'**
-  String get passwordLowercase;
-
-  /// No description provided for @passwordNumber.
-  ///
-  /// In en, this message translates to:
-  /// **'Password Must Contain Numbers'**
-  String get passwordNumber;
-
-  /// No description provided for @passwordSpecialChar.
-  ///
-  /// In en, this message translates to:
-  /// **'Password Must Contain Special Characters'**
-  String get passwordSpecialChar;
-
-  /// No description provided for @passwordLength.
-  ///
-  /// In en, this message translates to:
-  /// **'Password Must Be Longer Than 8 Characters'**
-  String get passwordLength;
-
-  /// No description provided for @rePasswordRequired.
-  ///
-  /// In en, this message translates to:
-  /// **'Password Confirmation is Required'**
-  String get rePasswordRequired;
-
-  /// No description provided for @passwordsNotMatch.
-  ///
-  /// In en, this message translates to:
-  /// **'Passwords Do Not Match'**
-  String get passwordsNotMatch;
-
-  /// No description provided for @resetPassword.
-  ///
-  /// In en, this message translates to:
-  /// **'Reset Password'**
-  String get resetPassword;
 }
 
 class _AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
