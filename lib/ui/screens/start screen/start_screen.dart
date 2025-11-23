@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../../core/Theme/app_Color.dart';
 import '../../../core/provider/app_config_provider.dart';
 import '../home screen/home_screen.dart';
 

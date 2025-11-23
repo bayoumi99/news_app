@@ -1,21 +1,27 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/core/Theme/app_Color.dart';
 import 'package:news_app/core/utls/context_extations.dart';
 import 'package:news_app/core/utls/padding.dart';
-import 'package:news_app/model/category_Dm.dart';
+import '../../model/category_Dm.dart';
+
 
 class CategoryCard extends StatelessWidget {
   final CategoryDm category;
-  final Function(CategoryDm) onpress;
+  final Function(CategoryDm) onPress;
 
-  const CategoryCard({super.key, required this.category, required this.onpress});
+  const CategoryCard({
+    required this.category,
+    required this.onPress,
+    super.key,
+    required Function(CategoryDm p1) onpress,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 1.5,
+    return InkWell(
+      onTap: () {
+        onPress(category);
+      },
       child: Stack(
-        fit: StackFit.expand,
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(32),
@@ -23,7 +29,6 @@ class CategoryCard extends StatelessWidget {
               context.appConfigProvider.isDarkMode
                   ? category.imageLightPath
                   : category.imageDarkPath,
-              fit: BoxFit.cover,
             ),
           ),
           Positioned.fill(
@@ -39,34 +44,31 @@ class CategoryCard extends StatelessWidget {
                     context.appConfigProvider.isEn
                         ? category.nameEn
                         : category.nameAr,
-                    style: Theme.of(context).textTheme.labelMedium!.copyWith(
-                      color: context.colors.onSurface,
+                    style: context.textTheme.headlineMedium!.copyWith(
+                      color: context.colors.surface,
                       fontWeight: FontWeight.bold,
                     ),
-                  ),
+                  ).withVerticalPadding(16),
                   Container(
                     decoration: BoxDecoration(
-                      color: AppColor.grey,
+                      color: Colors.grey,
                       borderRadius: BorderRadius.circular(1000),
                     ),
                     child: Directionality(
-                      textDirection:
-                      category.isRtl ? TextDirection.rtl : TextDirection.ltr,
+                      textDirection: category.isRtl
+                          ? TextDirection.rtl
+                          : TextDirection.ltr,
                       child: Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text("View All").withHorizontalPadding(16),
+                          Text("viewAll").withHorizontalPadding(16),
                           Container(
-                            padding:  EdgeInsets.all(16),
+                            padding: EdgeInsets.all(16),
                             decoration: BoxDecoration(
                               color: context.colors.surface,
                               shape: BoxShape.circle,
                             ),
-                            child:  Icon(
-                              Icons.arrow_forward_ios,
-                              color: Colors.white,
-                              size: 16,
-                            ),
+                            child: Icon(Icons.arrow_forward_ios),
                           ),
                         ],
                       ),

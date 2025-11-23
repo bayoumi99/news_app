@@ -21,7 +21,9 @@ class HomeTab extends StatelessWidget {
           8.spaceVertical,
           ...categories.map((category) => Column(
             children: [
-              CategoryCard(category: category , onpress: onCardPress,),
+              CategoryCard(category: category ,
+                onpress: onCardPress,
+                onPress: (CategoryDm p1) {  },),
               8.spaceVertical,
             ],
           )),

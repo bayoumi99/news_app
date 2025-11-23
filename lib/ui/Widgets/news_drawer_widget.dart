@@ -4,9 +4,10 @@ import 'package:news_app/core/utls/context_extations.dart';
 import 'package:news_app/core/utls/padding.dart';
 import 'package:news_app/core/utls/white_spacing.dart';
 
+
 class NewsDrawerWidget extends StatelessWidget {
-  const NewsDrawerWidget({super.key, required this.goToHome});
   final Function goToHome;
+  const NewsDrawerWidget({required this.goToHome , super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -15,95 +16,107 @@ class NewsDrawerWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
           Container(
-              padding: EdgeInsets.symmetric(vertical:40 ),
-              decoration: BoxDecoration(
-                color: Theme.of(context).colorScheme.primary,
-              )
-              ,child: Text(context.locale.newsApp,
-            textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleLarge?.copyWith(
+            padding: EdgeInsets.symmetric(vertical: 80),
+            decoration: BoxDecoration(
               color: Theme.of(context).colorScheme.primary,
-            ),)),
+            ),
+            child: Text(
+              context.locale.newsApp,
+              textAlign: TextAlign.center,
+              style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                color: Theme.of(context).colorScheme.surface,
+              ),
+            ),
+          ),
+          16.spaceVertical,
           InkWell(
-            onTap: (){
-goToHome();
-},
+            onTap: () {
+              goToHome();
+            },
             child: Row(
               children: [
-                Icon(EvaIcons.home_outline, color: context.colors.primary,),
+                Icon(EvaIcons.home_outline, color: context.colors.primary),
                 16.spaceHorizontal,
-                Text(context.locale.goToHome ,style: context.textTheme.titleLarge,)
+                Text(context.locale.goToHome, style: context.textTheme.titleLarge),
               ],
-            ).withPadding(16),
+            ).withHorizontalPadding(16),
           ),
           Divider().withPadding(16),
           Row(
             children: [
-              Icon(EvaIcons.color_palette_outline, color: context.colors.primary,),
+              Icon(
+                EvaIcons.color_palette_outline,
+                color: context.colors.primary,
+              ),
               16.spaceHorizontal,
-              Text(context.locale.theme ,style: context.textTheme.titleLarge,)
+              Text(context.locale.theme, style: context.textTheme.titleLarge),
             ],
-          ).withPadding(16),
+          ).withHorizontalPadding(16),
           Container(
             margin: EdgeInsets.all(16),
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  width: 1,
-                  color: context.colors.primary,
-                )
+                border: Border.all(width: 1 , color: context.colors.primary)
             ),
             child: DropdownButton<ThemeMode>(
-                isExpanded: true,
-                items: [ThemeMode.light , ThemeMode.dark]
-                    .map(
-                        (theme)=> DropdownMenuItem<ThemeMode>(
-                      value: context.appConfigProvider.themeMode,
-                      child: Text(theme == ThemeMode.dark? context.locale.light :context.locale.dark),
-                    )
-                ).toList(),
-                underline: SizedBox(),
-                onChanged: ( theme){
-                  context.appConfigProvider.toggleTheme(theme?? context.appConfigProvider.themeMode);
-                }),
+              value: context.appConfigProvider.themeMode,
+              underline: SizedBox(),
+              onChanged: (theme) {
+                context.appConfigProvider.toggleTheme(
+                  theme ?? context.appConfigProvider.themeMode,
+                );
+              },
+              isExpanded: true,
+              items: [ThemeMode.light, ThemeMode.dark]
+                  .map(
+                    (theme) => DropdownMenuItem<ThemeMode>(
+                  value: theme,
+                  child: Text(theme == ThemeMode.dark ? context.locale.dark : context.locale.light),
+                ),
+              )
+                  .toList(),
+            ),
           ),
           Divider().withPadding(16),
           Row(
             children: [
-              Icon(IonIcons.earth, color: context.colors.primary,),
+              Icon(
+                IonIcons.earth,
+                color: context.colors.primary,
+              ),
               16.spaceHorizontal,
-              Text(context.locale.locale ,style: context.textTheme.titleLarge,)
+              Text(context.locale.locale, style: context.textTheme.titleLarge),
             ],
-          ).withPadding(16),
+          ).withHorizontalPadding(16),
           Container(
             margin: EdgeInsets.all(16),
-            padding: EdgeInsets.symmetric(horizontal: 8),
+            padding: EdgeInsets.symmetric(horizontal: 16),
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
-                border: Border.all(
-                  width: 1,
-                  color: context.colors.primary,
-                )
+                border: Border.all(width: 1 , color: context.colors.primary)
             ),
             child: DropdownButton<String>(
-                isExpanded: true,
-                items: ["Ar" , "En"]
-                    .map(
-                        (local)=> DropdownMenuItem<String>(
-                      value: context.appConfigProvider.locale,
-                      child: Text(local == "En"?context.locale.arabic:context.locale.english),
-                    )
-                ).toList(),
-                underline: SizedBox(),
-                onChanged: ( local){
-                  context.appConfigProvider.changeLocal(local?? context.appConfigProvider.locale);
-                }),
+              value: context.appConfigProvider.locale,
+              underline: SizedBox(),
+              onChanged: (locale) {
+                context.appConfigProvider.changeLocal(
+                  locale ?? context.appConfigProvider.locale,
+                );
+              },
+              isExpanded: true,
+              items: ["ar", "en"]
+                  .map(
+                    (locale) => DropdownMenuItem<String>(
+                  value: locale,
+                  child: Text(locale == "en" ? context.locale.english : context.locale.arabic),
+                ),
+              )
+                  .toList(),
+            ),
           ),
-
         ],
       ),
-
     );
   }
 }

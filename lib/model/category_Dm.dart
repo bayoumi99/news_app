@@ -52,7 +52,7 @@ List<CategoryDm> categories = [
     'علوم',
     'assets/image/science.png',
     'assets/image/science_dark.png',
-    true,
+    false,
   ),
   CategoryDm(
     'sport',
